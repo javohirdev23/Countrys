@@ -1,0 +1,32 @@
+.navcont {
+  width: 1240px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  margin-top: 23px;
+}
+h1 {
+  font-weight: bold;
+}
+button {
+  border: 1px solid black;
+  padding: 6px;
+  border-radius: 5px;
+  background: transparent;
+  border: none;
+}
+.select-cont {
+  width: 1180px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: end;
+  margin-top: 40px;
+}
+.select-cont select {
+  width: 200px;
+  padding: 10px;
+ 
+  border: 1px solid rgb(128, 124, 124);
+  border-radius: 6px;
+}

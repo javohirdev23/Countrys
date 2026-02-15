@@ -1,0 +1,29 @@
+.info-container {
+  display: flex;
+  gap: 118px;
+  justify-content: center;
+  margin-top: 50px;
+}
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.info-text h1 {
+  font-size: x-large;
+  font-weight: bolder;
+}
+.button {
+  width: 1140px;
+  margin-inline: auto;
+
+
+}
+.button button{
+    width: 80px;
+      border: 1px rgb(193, 185, 185) solid;
+}
+.button button:hover{
+    background: #000;
+    color: white;
+}
