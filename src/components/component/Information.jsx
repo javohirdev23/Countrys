@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { Button, Image, Text } from "@chakra-ui/react";
 import "./information.css";
 import Loader from "./Loader";
+import { useColorMode } from "../ui/color-mode";
 export default function Information() {
   const { name } = useParams();
   const navigate = useNavigate();
   const [country, setCountry] = useState(null);
+  const { colorMode } = useColorMode();
 
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/name/${name}`)
@@ -14,16 +16,22 @@ export default function Information() {
       .then((data) => setCountry(data[0]));
   }, [name]);
 
-  if (!country) return <div>
-    <Loader/>
-  </div>
+  if (!country)
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
 
   return (
     <>
       <div className="button">
-        <Button color={"black"} onClick={() => navigate("/")}>
-        ← Back
-      </Button>
+        <Button
+          color={colorMode === "dark" ? "white" : "black"}
+          onClick={() => navigate("/")}
+        >
+          ← Back
+        </Button>
       </div>
       <div className="info-container">
         <div className="info-img">
@@ -36,7 +44,7 @@ export default function Information() {
           />
         </div>
         <div className="info-text">
-          <h1 >{country.name.common}</h1>
+          <h1>{country.name.common}</h1>
 
           <Text paddingTop={"30px"}>
             <b>Native Name:</b>

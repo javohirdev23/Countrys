@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 import "./mainsec.css";
 import Loader from "./Loader";
-import { useColorModeValue } from "../ui/color-mode";
+import { useColorMode, useColorModeValue } from "../ui/color-mode";
+
 export default function Mainsec({ selectedRegion }) {
   const [state, setState] = useState([]);
   const navigate = useNavigate();
   const [loader, setLoader] = useState(true);
-    const textColor = useColorModeValue("black", "white");
+  const { colorMode } = useColorMode();
 
   //   const [error, setError] = useState(false);
 
@@ -51,7 +52,11 @@ export default function Mainsec({ selectedRegion }) {
                 className="card-cont"
                 onClick={() => navigate(`/country/${el.name.common}`)}
               >
-                <Card.Root maxW="sm" overflow="hidden">
+                <Card.Root
+                  maxW="sm"
+                  overflow="hidden"
+        
+                >
                   <Image
                     width={260}
                     height={160}
@@ -63,16 +68,22 @@ export default function Mainsec({ selectedRegion }) {
                       {el.name.common}
                     </Card.Title>
                     <Card.Description>
-                      <text color={textColor}>Population: </text>
+                      <span color={colorMode === "dark" ? "white" : "dakr"}>
+                        Population:{" "}
+                      </span>
                       {el.population.toLocaleString()}
                     </Card.Description>
 
                     <Card.Description>
-                      <text >Region: </text>
+                      <span color={colorMode === "dark" ? "white" : "dakr"}>
+                        Region:{" "}
+                      </span>
                       {el.region}
                     </Card.Description>
                     <Card.Description>
-                      <text>Capital: </text>
+                      <span color={colorMode === "dark" ? "white" : "dakr"}>
+                        Capital:{" "}
+                      </span>
                       {el.capital}
                     </Card.Description>
                   </Card.Body>

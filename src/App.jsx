@@ -1,13 +1,17 @@
-import { createBrowserRouter,BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 import Navbar from "./components/component/Navbar";
 import Mainsec from "./components/component/Mainsec";
-import Select from "./components/component/Select";
 import { useState } from "react";
 import Information from "./components/component/Information";
+import SelectDemo from "./components/component/Select";
 export default function App() {
   const [selectedRegion, setSelectedRegion] = useState("Asia");
 
- 
   return (
     <BrowserRouter>
       <Navbar />
@@ -17,7 +21,7 @@ export default function App() {
           path="/"
           element={
             <>
-              <Select
+              <SelectDemo
                 selectedRegion={selectedRegion}
                 setSelectedRegion={setSelectedRegion}
               />
@@ -29,6 +33,5 @@ export default function App() {
         <Route path="/country/:name" element={<Information />} />
       </Routes>
     </BrowserRouter>
-   
   );
 }

@@ -7,12 +7,13 @@
   justify-content: center;
   align-items: center;
   margin-top: 80px;
+  cursor: pointer;
 }
 .card-cont {
   display: flex;
   justify-content: center;
 }
-.card-cont text {
+.card-cont span {
   font-weight: 500;
-  color: black;
+
 }
